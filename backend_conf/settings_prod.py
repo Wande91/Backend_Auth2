@@ -24,10 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8r2iz@db8$=vhmyoah(+1l#$aem_9s_(hfvtev5ga&b*(7hhgs'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-CORS_ALLOW_ALL_ORIGINGS = True
+DEBUG         = False
+ALLOWED_HOSTS = ['localhost']
 
 
 # Application definition
@@ -40,15 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'parametros',
-    'rest_framework',
-    'corsheaders'
+    'rest_framework'
 ]
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_TIMELIFE'     : timedelta(minutes=15),
     'REFRESH_TOKEN_TIMELIFE'    : timedelta(days=1),
     'ROTATE_REFRESH_TOKENS'     : False,
-    'BLACKLIST_AFTER_ROTATION'  : True,
+    'BLACKLIST_AFTER_ROTATION'  : False,
     'UPDATE_LAST_LOGIN'         : False,
     'ALGORITHM'                 : 'HS256',
     'USER_ID_FIELD'             : 'id',
@@ -63,7 +60,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 REST_FRAMEWORK = {
@@ -71,7 +67,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.simplejwt.authentication.JWTAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication'
     )
 }
 
@@ -104,10 +100,10 @@ WSGI_APPLICATION = 'backend_conf.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE'    : 'django.db.backends.postgresql_psycopg2',
-        'NAME'      : 'base_ciclo4',
-        'USER'      : 'postgres',
-        'PASSWORD'  : 'wopl1991',  
-        'HOST'      : 'localhost',
+        'NAME'      : 'dcdb0947c996ha',
+        'USER'      : 'qvssedqtgoeyqr',
+        'PASSWORD'  : 'cab8a4785d250c64b1ab098edbfd265d197473536424608d7d6c1db3c5e6d670',  
+        'HOST'      : 'ec2-54-173-138-144.compute-1.amazonaws.com',
         'PORT'      : '5432'
     }
 }
